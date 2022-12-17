@@ -1,0 +1,31 @@
+.author {
+    display: flex;
+
+    &__image {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+
+    &__text-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__user-name {
+        display: inline-block;
+        margin-bottom: 3px;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14px;
+        color: #333333;
+    }
+
+    &__user-tag {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        color: #8D8D8D;
+    }
+}

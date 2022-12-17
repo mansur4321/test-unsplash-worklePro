@@ -1,0 +1,19 @@
+@import './nullStyle/nullStyle.scss';
+@import './fontsStyle/roboto-condens.scss';
+
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+    box-sizing: border-box;
+}
+
+@import './blocks/container.scss';
+
+@import './blocks/main.scss';
+
+@import './blocks/user-card.scss';
+
+@import './blocks/author.scss';
+
+@import './blocks/views-amount.scss';
+
+@import './blocks/footer.scss';

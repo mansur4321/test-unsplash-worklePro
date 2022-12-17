@@ -1,0 +1,16 @@
+.views-amount {
+    display: flex;
+
+
+    &__text {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: right;
+        color: #8D8D8D;
+    }
+
+    &__svg {
+        margin-left: 5px;
+    }
+}
