@@ -1,7 +1,7 @@
 <template>
     <div class="views-amount">
         <p class="views-amount__text">
-            51200
+            {{ views }}
         </p>
 
         <div class="views-amount__svg">
@@ -15,7 +15,15 @@
 
 <script>
 export default {
+    props: {
+        views: Number,
+    },
 
+    computed: {
+        correctViews() {
+            return this.views.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+        }
+    }
 }
 </script>
 

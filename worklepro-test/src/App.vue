@@ -1,12 +1,11 @@
 <template>
 	<container-c>
-		<main class="main">
-			<user-card-c />
-			<user-card-c />
-			<user-card-c />
-			<user-card-c />
-			<user-card-c />
-			<user-card-c />
+		<main class="main" v-if="check">
+			<user-card-c 
+				v-for="user in users"
+				:key="user.id"
+				:userData="user"
+			></user-card-c>
 		</main>
 
 		<footer-c />
@@ -23,16 +22,18 @@ import UsersData from './API/UsersData'
 export default {
 	components: { containerC, UserCardC, footerC },
 
+	data() {
+		return {
+			users: [],
+			check: false,
+		}
+	},
+
 	async mounted() {
 		const usersDataObj = new UsersData();
-		let pageData = await usersDataObj.getPageData(1);
-		console.log(pageData)
-
-		//const response = await fetch(`https://api.unsplash.com/photos?page=1&client_id=xv5xcguRNO1pSxm3sisjL5uUIhp8AGLB_B-CN3b33NM`, {
-        //    method: 'GET'
-        //});
-        //const message = await response.json();
-        //console.log(message)
+		this.users = await usersDataObj.getPageData(1);
+		
+		this.check = true;
 	}
 	
 }
