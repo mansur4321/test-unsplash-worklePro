@@ -1,6 +1,8 @@
 <template>
 	<container-c>
-		<main class="main" v-if="check">
+		<main class="main" 
+			v-if="check"
+		>
 			<user-card-c 
 				v-for="user in users"
 				:key="user.id"

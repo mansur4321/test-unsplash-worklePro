@@ -5,12 +5,15 @@
                 :imgUrl="userData.urlProfileImage"
                 :nameUser="userData.name"
                 :userInst="userData.linkInst"
+                @openAuthorAccount="openAuthorAccount"
             />
         </div>
 
         <div class="user-card__main">
             <img 
-                :src="userData.urlImage" :alt="userData.alt" :class="{
+                :src="userData.urlImage"
+                :alt="userData.alt"
+                :class="{
                     'user-card__image-mw': userData.imageStyle,
                     'user-card__image-mh': !userData.imageStyle,
                 }"
@@ -29,13 +32,19 @@
 import AuthorC from './author-c.vue'
 import viewsAmountC from './views-amount-c.vue'
 export default {
-  components: { viewsAmountC, AuthorC },
+    components: { viewsAmountC, AuthorC },
 
-  props: {
-    userData: Object,
-  }
+    props: {
+        userData: Object,
+    },
+
+    methods: {
+        openAuthorAccount() {
+            window.open(this.userData.urlUserProfile, "_blank");
+        }
+    }
 }
 </script>
 
 <style>
-</style>
+</style> 

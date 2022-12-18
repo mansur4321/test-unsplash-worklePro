@@ -1,17 +1,23 @@
 <template>
-  <div class="author">
-    <img :src="imgUrl" :alt="nameUser" class="author__image">
+	<div class="author"
+		@click="clickOnAuthor"
+	>
+		<img class="author__image"
+			:src="imgUrl"
+			:alt="nameUser"
+			@click.stop
+		>
 
-    <div class="author__text-wrapper">
-        <p class="author__user-name">
-			{{ nameUser }}
-        </p>
+		<div class="author__text-wrapper">
+			<p class="author__user-name">
+				{{ nameUser }}
+			</p>
 
-        <p class="author__user-tag">
-            {{ this.correctUserInst }}
-        </p> 
-    </div>
-  </div>
+			<p class="author__user-tag">
+				{{ this.correctUserInst }}
+			</p> 
+		</div>
+	</div>
 </template>
 
 <script>
@@ -22,9 +28,19 @@ export default {
 		userInst: String,
 	},
 
+	emits: {
+		openAuthorAccount: null,
+	},
+
 	computed: {
 		correctUserInst() {
 			return this.userInst ? '@' + this.userInst : '' 
+		}
+	},
+
+	methods: {
+		clickOnAuthor() {
+			this.$emit('openAuthorAccount')
 		}
 	}
 }
