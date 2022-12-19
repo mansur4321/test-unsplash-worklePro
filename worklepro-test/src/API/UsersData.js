@@ -1,5 +1,5 @@
 export default class UsersData {
-    _clientId = 'xv5xcguRNO1pSxm3sisjL5uUIhp8AGLB_B-CN3b33NM';
+    _clientId = 'CKIOr_2KNM6ccqbQQRM9Wyjz9mc6j4YtWOygD64LPkM';
     _pageURL = 'https://api.unsplash.com/photos?page=';
     _statisticImage = 'https://api.unsplash.com/photos/';
 
@@ -9,8 +9,18 @@ export default class UsersData {
         const response = await fetch(`${this._pageURL}${pageNumber}&${this.clinetId}`, {
             method: 'GET'
         });
+
+        if (!response.status === 403) {
+            throw Error('Превышен лимит запросов!');
+        }
+
+        if (!response.status >= 500) {
+            throw Error('Какие-то проблемы на серверах нашего API сервиса!');
+        }
+
         const message = await response.json();
         console.log(message)
+
         let usersData = [];
 
         for (let user of message) {
@@ -37,8 +47,7 @@ export default class UsersData {
             method: 'GET'
         });
         const { views } = await response.json();
-
-        return views.historical.quantity;
+        return views.total;
     }
 
     get clinetId() {

@@ -1,7 +1,7 @@
 <template>
     <div class="views-amount">
         <p class="views-amount__text">
-            {{ views }}
+            {{ correctViews }}
         </p>
 
         <div class="views-amount__svg">
@@ -21,7 +21,7 @@ export default {
 
     computed: {
         correctViews() {
-            return this.views.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+            return this.views.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
         }
     }
 }
