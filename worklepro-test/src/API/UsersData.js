@@ -1,5 +1,5 @@
 export default class UsersData {
-    _clientId = 'CKIOr_2KNM6ccqbQQRM9Wyjz9mc6j4YtWOygD64LPkM';
+    _clientId = 'S0Pvun-FtckUFyyWpGPCWoY5LFbIJc8HIxgBRcQ13Os';
     _pageURL = 'https://api.unsplash.com/photos?page=';
     _statisticImage = 'https://api.unsplash.com/photos/';
 
